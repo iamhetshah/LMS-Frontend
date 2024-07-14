@@ -1,0 +1,90 @@
+<div class="register">
+    <div class="christin-hume-hcfwew744z4-unsp"></div>
+    <main class="branding">
+        <div class="wrapper-vector-1">
+            <img class="wrapper-vector-1-child" alt="" src="vector-1.svg" />
+        </div>
+        <img class="graphic-icon" alt="" src="vector-2.svg" />
+    </main>
+    <form class="rectangle-parent">
+        <div class="frame-child"></div>
+        <div class="logo-1-wrapper">
+            <img class="logo-1-icon" loading="lazy" alt="" src="logo-1@2x.png" />
+        </div>
+        <div class="registration-wrapper">
+            <h3 class="registration">Registration</h3>
+        </div>
+        <div class="heading">
+            <div class="full-name">Full Name</div>
+            <input #fullname type="email" class="college-details" placeholder="Full Name">
+        </div>
+        <div class="input-fields">
+            <div class="email-id">Email ID</div>
+            <input #email type="email" class="college-details" placeholder="username@example.com">
+        </div>
+        <div class="registration-fields">
+            <div class="phone-number">Phone Number</div>
+            <input #number type="string" class="college-details" placeholder="+91 1234567890">
+        </div>
+        <div class="registration-fields1">
+            <div class="address">Address</div>
+            <input #address type="text" class="college-details" placeholder="Your address">
+        </div>
+        <div class="registration-fields2">
+            <div class="pincode">Pincode</div>
+            <div class="address2">
+                <input #pincode class="input" placeholder="378374" type="number" />
+            </div>
+        </div>
+        <div class="password-parent">
+            <div class="password">Password</div>
+            <div class="frame-parent justify-between">
+                <input #password class="outline-none" placeholder="password"
+                    [type]="tooglePassword1 ? 'text' : 'password' " />
+                <button type="button" class="border-0 bg-transparent" (click)="this.tooglePassword1 = !tooglePassword1">
+                    <img class="eye-off" alt="" src="eye--off.svg" />
+                </button>
+            </div>
+        </div>
+        <div class="password-parent">
+            <div class="password">Password</div>
+            <div class="frame-parent justify-between">
+                <input #confirmpassword class="outline-none" placeholder="confirm password"
+                    [type]="tooglePassword2 ? 'text' : 'password' " />
+                <button type="button" class="border-0 bg-transparent" (click)="this.tooglePassword2 = !tooglePassword2">
+                    <img class="eye-off" alt="" src="eye--off.svg" />
+                </button>
+            </div>
+        </div>
+        <!-- <div> -->
+        @for (error of errors(); track $index) {
+        <div class="flex items-center self-stretch p-2 text-sm my-2 text-red-800 rounded-lg bg-red-50" role="alert">
+            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div>
+                <span class="font-medium">{{error}}</span>
+            </div>
+        </div>
+        }
+        <!-- </div> -->
+        <button class="button-login" type="button"
+            (click)="register(fullname.value, email.value, number.value, password.value, confirmpassword.value,address.value, +pincode.value)"
+            id="buttonLogin">
+            <div class="register1">Register</div>
+        </button>
+        <div class="guest-info">
+            <div class="already-a-user-container">
+                Already a User?
+                <span class="login-now">
+                    <a [routerLink]="['../login']">
+                        Login now
+                    </a>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

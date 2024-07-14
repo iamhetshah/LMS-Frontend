@@ -1,0 +1,10 @@
+<div class="p-2 bg-gray-50 rounded flex flex-col items-center cursor-pointer">
+    <img class="w-40 rounded aspect-[3/4] object-cover" [src]="bookData.thumbnail" [alt]="bookData.title">
+    <div class="flex pt-2 flex-col">
+        <span class="font-semibold">{{bookData.title.length > 15 ? bookData.title.slice(0, 12) + '...' :
+            bookData.title}}</span>
+        <span class="text-gray-500">{{bookData.author.length > 15 ? bookData.author.slice(0, 12) + '...' :
+            bookData.author}}</span>
+        <span class="text-gray-500 text-xs">{{bookData.published_date}}</span>
+    </div>
+</div>

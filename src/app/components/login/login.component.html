@@ -1,0 +1,75 @@
+<div class="login">
+    <div class="christin-hume-hcfwew744z4-unsp"></div>
+    <main class="wrapper-navigation-parent">
+        <div class="wrapper-navigation">
+            <img class="navigation-icon" alt="" src="navigation.svg" />
+        </div>
+        <img class="frame-child" alt="" src="vector-2.svg" />
+    </main>
+    <form class="rectangle-parent">
+        <div class="logo-1-wrapper">
+            <img class="logo-1-icon" loading="lazy" alt="" src="logo-1@2x.png" />
+        </div>
+        <div class="frame-wrapper">
+            <div class="frame-parent">
+                <div class="welcome-back-wrapper">
+                    <div class="welcome-back">Welcome Back !</div>
+                </div>
+                <div class="sign-in-to">
+                    Sign in to continue to yourDigital Library
+                </div>
+            </div>
+        </div>
+        <div class="input-fields-wrapper">
+            <div class="input-fields">
+                <div class="email-password">
+                    <div class="email">Email</div>
+                    <div class="input-fields1">
+                        <input #email class="usernamegmailcom" placeholder="username@gmail.com" type="text" />
+                    </div>
+                </div>
+                <div class="email-password1">
+                    <div class="password">Password</div>
+                    <div class="input-fields1">
+                        <input #password class="usernamegmailcom" placeholder="password"
+                            [type]="tooglePassword ? 'text' : 'password' " />
+                        <button type="button" class="border-0 bg-transparent"
+                            (click)="this.tooglePassword = !tooglePassword">
+                            <img class="eye-off" alt="" src="eye--off.svg" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            @for (error of errors(); track $index) {
+            <div class="flex items-center p-2 text-sm my-2 text-red-800 rounded-lg bg-red-50" role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">{{error}}</span>
+                </div>
+            </div>
+            }
+        </div>
+        <div class="button-login-wrapper">
+            <button type="button" (click)="login(email.value, password.value)" class="button-login" id="buttonLogin">
+                <div class="login1">Login</div>
+            </button>
+        </div>
+        <div class="new-user-register-here-parent">
+            <div class="new-user-register-container" id="newUserRegister">
+                New User?
+                <span class="register-here">
+                    <a [routerLink]="['../register']">
+                        Register Here
+                    </a>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

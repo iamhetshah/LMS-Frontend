@@ -1,0 +1,33 @@
+<nav class="w-full shadow-sm sticky top-0 flex justify-between items-center bg-gray-100 p-3">
+    <div>
+        <img src="logo-1@2x.png" class="w-20" alt="">
+    </div>
+    @if(this.user.isAuthenticated()) {
+    <div>
+        <div (click)="this.dropdownToggle = !this.dropdownToggle"
+            class="p-2 w-40 select-none justify-evenly cursor-pointer items-center bg-gray-200 rounded flex gap-2">
+            <img class="w-7 rounded-full aspect-square"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s"
+                alt="">
+            <span class="font-semibold text-gray-700">Het Shah</span>
+            <img class="w-4 h-4" src="https://cdn.icon-icons.com/icons2/2716/PNG/512/caret_down_icon_173293.png" alt=""
+                srcset="">
+        </div>
+        @if (dropdownToggle) {
+        <div class="absolute rounded flex flex-row gap-1 my-2 w-40 shadow-sm p-2 bg-white">
+            <a routerLink="profile" class="text-black no-underline p-2 rounded w-full hover:bg-gray-50">Profile</a>
+        </div>
+        <div class="absolute rounded flex flex-row gap-1 my-2 w-40 shadow-sm p-2 bg-white">
+            <a routerLink="orders" class="text-black no-underline p-2 rounded w-full hover:bg-gray-50">Orders</a>
+        </div>
+        @if(this.user.user()().role === 'LIBRARIAN') {
+        <div class="absolute rounded flex flex-row gap-1 my-2 w-40 shadow-sm p-2 bg-white">
+            <a routerLink="dashboard" class="text-black no-underline p-2 rounded w-full hover:bg-gray-50">Dashboard</a>
+        </div>
+        }
+        }
+    </div>
+    } @else {
+    <button class="p-2 cursor-pointer items-center  rounded flex gap-2" [routerLink]="['login']">Login</button>
+    }
+</nav>
