@@ -14,6 +14,7 @@ import { HomeComponent } from './app/components/home/home.component';
 import { BookCardComponent } from './app/components/book-card/book-card.component';
 import { AllBooksComponent } from './app/components/all-books/all-books.component';
 import { FormsModule } from '@angular/forms';
+import { BookPageComponent } from './app/components/book-page/book-page.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     BookCardComponent,
     AllBooksComponent,
+    BookPageComponent,
   ],
   providers: [CookieService, UserService, provideHttpClient()],
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],

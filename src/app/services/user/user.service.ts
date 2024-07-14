@@ -23,7 +23,7 @@ enum UserErrors {
 export class UserService {
   private _baseURL = BASE_URL;
   private _isAuthenticated = signal(false);
-  private _user = signal({
+  public _user = {
     UUID: 0,
     firstName: '',
     lastName: '',
@@ -32,17 +32,15 @@ export class UserService {
     address: '',
     pinCode: 0,
     role: '',
-  });
+  };
 
-  public user() {
-    return this._user.asReadonly();
-  }
   public get isAuthenticated() {
     return this._isAuthenticated.asReadonly();
   }
   public get baseURL() {
     return this._baseURL;
   }
+
   public set baseURL(value: string) {
     this._baseURL = value;
   }
@@ -64,8 +62,8 @@ export class UserService {
           },
         })
         .subscribe({
-          next: (user: UserModel) => {
-            this._user.set(user);
+          next: (user: any) => {
+            this._user = user.data;
             this._isAuthenticated.set(true);
           },
           error: (error) => {
@@ -94,7 +92,7 @@ export class UserService {
         next: (data: { token: string; user: UserModel }) => {
           console.log(data);
 
-          this._user.set(data.user);
+          this._user = data.user;
           this.cookie.set('accessToken', data.token, {
             path: '/',
             expires: 29,
@@ -143,7 +141,7 @@ export class UserService {
   public logout() {
     this.cookie.delete('accessToken');
     this._isAuthenticated.set(false);
-    this._user.set({
+    this._user = {
       UUID: 0,
       firstName: '',
       lastName: '',
@@ -152,7 +150,7 @@ export class UserService {
       address: '',
       pinCode: 0,
       role: '',
-    });
+    };
     this.router.navigate(['']);
   }
 }

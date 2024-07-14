@@ -1,0 +1,56 @@
+<div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-3xl mx-auto p-6 sm:p-8 md:p-10"
+    data-v0-t="card">
+    <div class="flex flex-col space-y-1.5 p-6">
+        <h3 class="whitespace-nowrap tracking-tight text-2xl font-bold">User Profile</h3>
+        <p class="text-sm text-muted-foreground">View your personal information.</p>
+    </div>
+    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid gap-4">
+            <div class="grid gap-2">
+                <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="name">
+                    Full Name
+                </label>
+                <div class="bg-muted px-4 py-2 rounded-md">{{this.user._user.firstName + " " +
+                    this.user._user.lastName}}</div>
+            </div>
+            <div class="grid gap-2">
+                <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="phone">
+                    Phone Number
+                </label>
+                <div class="bg-muted px-4 py-2 rounded-md">{{this.user._user.phoneNumber}}</div>
+            </div>
+            <div class="grid gap-2">
+                <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="email">
+                    Email
+                </label>
+                <div class="bg-muted px-4 py-2 rounded-md">{{this.user._user.email}}</div>
+            </div>
+        </div>
+        <div class="grid gap-4">
+            <div class="grid gap-2">
+                <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="pincode">
+                    Pincode
+                </label>
+                <div class="bg-muted px-4 py-2 rounded-md">{{this.user._user.pinCode}}</div>
+            </div>
+            <div class="grid gap-2">
+                <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    for="address">
+                    Address
+                </label>
+                <div class="bg-muted px-4 py-2 rounded-md">{{this.user._user.address}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="items-center p-6 flex justify-end">
+    </div>
+</div>

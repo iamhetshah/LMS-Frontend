@@ -7,6 +7,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { LibrarianDashboardComponent } from './components/librarian-dashboard/librarian-dashboard.component';
+import { BookPageComponent } from './components/book-page/book-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const LoginGuard: CanMatchFn = (rou, seg) => {
   const user = inject(UserService);
@@ -46,7 +48,21 @@ export const routes: Routes = [
     canMatch: [
       () => {
         const user = inject(UserService);
-        return user.isAuthenticated() && user.user()().role === 'LIBRARIAN';
+        return user.isAuthenticated() && user._user.role === 'LIBRARIAN';
+      },
+    ],
+  },
+  {
+    path: 'book/:isbn',
+    component: BookPageComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canMatch: [
+      () => {
+        const user = inject(UserService);
+        return user.isAuthenticated();
       },
     ],
   },
